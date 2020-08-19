@@ -1,0 +1,57 @@
+section{
+  margin:20% auto;
+  width: 100%;
+}
+h1{
+  text-decoration: underline;
+}
+h3{
+  font-weight: unset;
+}
+.container{
+  width: 100%;
+}
+.content{
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+}
+button{
+  border-radius: 0;
+  background-color: #85bd44;
+  color:white;
+  border-color:#556740;
+}
+.button-container{
+  text-align: center;
+  margin: 20px 0px;
+}
+input{
+  width:90%;
+  margin: 0px 10px;
+  border-radius:0;
+  border-color:#383232;
+}
+.covid-paragraph{
+  color:red;
+  display: inline;
+}
+
+span{
+  color:red;
+}
+
+/* mobile */
+
+@media screen and (max-width:768px){
+  section{
+    margin:50% auto;
+  }
+  input{
+    font-size: 20px;
+    height: 40px;
+  }
+  button{
+    font-size: 25px;
+  }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Get Latest COVID-19</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+  </head>
+  <body>
+      <section>
+        <div class="container">
+          <div class="content">
+            <form action="/submit" method="POST">
+              <h1>Get The Latest <p class="covid-paragraph">COVID-19</p> status emailed to you!</h1>
+              <h3>Enter your email to get the latest COVID-19 data</h3>
+              <input type="email" name="email" id="email" value="" placeholder="Enter your email here" required>
+              <div class="button-container">
+                <button type="submit" id="button" name="button">Send</button>
+              </div>
+              {% if message %}
+              <span style="color:{{color}};">{{ message }}</span>
+              {% endif %}
+              <span id="message"></span>
+            </form>
+          </div>
+        </div>
+      </section>
+      <script type="text/javascript" src="{{ url_for('static',filename='js/main.js') }}" > </script>
+  </body>
+</html>
