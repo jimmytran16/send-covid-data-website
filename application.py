@@ -32,6 +32,7 @@ def submit():
             print(error)
             message = 'Fail to send please try again later!'
         return redirect(url_for('main',message=message)) #redirect to the main page and pass in a GET message
-
+    else:
+        return '<h1>Method Not Allowed!</h1>',405
 if __name__ == '__main__':
     application.run(debug=False)
