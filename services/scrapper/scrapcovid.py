@@ -50,3 +50,7 @@ def scrap_from_new_website(): # GIVES YOU DATA ON YESTERDAYS COVID STATUS
             continue
         counter = counter + 1
     return state_object #returns back a dictionary of the STATES:[DATA]
+
+
+if __name__ == '__main__':
+    pprint(scrap_from_new_website())

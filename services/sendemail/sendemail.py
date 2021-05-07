@@ -4,7 +4,7 @@ from email.mime.multipart import MIMEMultipart
 import schedule
 import time
 from datetime import datetime, timedelta
-from covid.scrapcovid import scrap_from_new_website #import the function that returns a dictionary of states and its data
+from services.scrapper.scrapcovid import scrap_from_new_website #import the function that returns a dictionary of states and its data
 from dotenv import load_dotenv,find_dotenv #get the functions to load the variables inside .env
 import os
 

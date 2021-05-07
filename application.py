@@ -1,5 +1,5 @@
 from flask import Flask, render_template,redirect,url_for,request
-from sendemail.sendemail import send_out_mail
+from services.sendemail.sendemail import send_out_mail
 import os
 from dotenv import find_dotenv, load_dotenv
 
@@ -35,4 +35,4 @@ def submit():
     else:
         return '<h1>Method Not Allowed!</h1>',405 #if its a GET method, pass in the content and status code 405
 if __name__ == '__main__':
-    application.run(debug=False)
+    application.run(debug=True)
