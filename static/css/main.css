@@ -1,6 +1,7 @@
 
 body {
-  font-family: 'Montserrat', sans-serif;    
+  font-family: 'Montserrat', sans-serif;   
+  overflow: hidden; 
 }
 
 .input-button-container {
@@ -23,7 +24,7 @@ h3{
 }
 .content{
   width: fit-content;
-  margin: 0 auto;
+  margin: 1px;
   text-align: center;
 }
 button{
