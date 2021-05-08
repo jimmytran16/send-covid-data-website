@@ -4,21 +4,22 @@ body {
   overflow: hidden; 
 }
 
-body,
-html {
-  position: fixed;
+body::-webkit-scrollbar {
+  display: none;
 }
 
-.input-button-container {
-  display: flex;
-  margin: 10px;
-}
 h2{
   text-transform: uppercase;
 }
 h3{
   font-weight: unset;
 }
+
+.input-button-container {
+  display: flex;
+  margin: 10px;
+}
+
 .container{
   display: flex;
   flex-direction: column;
