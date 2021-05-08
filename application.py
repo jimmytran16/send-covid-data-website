@@ -13,7 +13,7 @@ def main():
     color = ''
     try: #check if it is a success or fail message and give color a value
         if 'Success' in request.args.get('message'):
-            color = 'green'
+            color = '#85bd44'
         if 'Fail' in request.args.get('message'):
             color = 'red'
     except Exception:

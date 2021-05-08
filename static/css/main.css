@@ -1,15 +1,25 @@
-section{
-  margin:20% auto;
-  width: 100%;
+
+body {
+  font-family: 'Montserrat', sans-serif;    
 }
-h1{
-  text-decoration: underline;
+
+.input-button-container {
+  display: flex;
+  margin: 10px;
+}
+h2{
+  text-transform: uppercase;
 }
 h3{
   font-weight: unset;
 }
 .container{
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
 }
 .content{
   width: fit-content;
@@ -17,20 +27,26 @@ h3{
   text-align: center;
 }
 button{
-  border-radius: 0;
+  border-radius: 0px 5px 5px 0px;
+  border: 0;
   background-color: #85bd44;
   color:white;
   border-color:#556740;
+  height: 5vh;
+  padding: 0px 10px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
 .button-container{
+  align-self: center;
   text-align: center;
-  margin: 20px 0px;
 }
 input{
   width:90%;
-  margin: 0px 10px;
-  border-radius:0;
-  border-color:#383232;
+  border-radius: 5px 0px 0px 5px;
+  height: 5vh;
+  border:0;
+  padding: 0px 10px;
 }
 .covid-paragraph{
   color:red;
@@ -42,16 +58,25 @@ span{
 }
 
 /* mobile */
+@media screen and (max-width:375px){
+  h2{
+    font-size: 20px;
+  }
+  h3{
+    font-size: 14px; 
+  }
+  span {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+}
 
 @media screen and (max-width:768px){
-  section{
-    margin:50% auto;
-  }
   input{
-    font-size: 20px;
-    height: 40px;
+    font-size: 15px;
+    height: 5vh;
   }
   button{
-    font-size: 25px;
+    font-size: 15px;
   }
 }

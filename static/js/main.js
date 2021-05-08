@@ -5,6 +5,7 @@ submit.addEventListener('click',()=>{
   if(input.value.length == 0){
     submit.disabled = true;
     input.style.borderColor = 'red';
+    span.innerHTML = '';
     span.innerHTML = 'Field is empty!';
   }
 });
@@ -14,4 +15,11 @@ input.addEventListener('change',()=>{
     input.style.borderColor = '';
     span.innerHTML = '';
   }
+});
+
+const theButton = document.querySelector("#button");
+
+theButton.addEventListener("click", () => {
+    console.log('button clicked')
+    theButton.classList.add("button--loading");
 });
