@@ -10,13 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
   <style>
     .background {
-      background-image: linear-gradient( #7b9c7d8c, rgb(31 33 31 / 0%) ), url('{{ url_for('static',filename='img/background.png') }}');
+      background-image: linear-gradient(#7b9c7d8c, rgb(31 33 31 / 0%)),
+      url('{{ url_for('static',filename='img/background.png') }}');
       background-repeat: no-repeat;
       background-size: cover;
       width: 100vw;
       height: 100%;
       overflow: hidden;
-      position:fixed;
+      position: fixed;
       top: 0;
       left: 0;
       z-index: -1;
@@ -24,29 +25,36 @@
     }
   </style>
 </head>
+
 <body>
   <section class="background">
   </section>
-    <div class="container">
-      <div class="content">
-        <form action="/submit" method="POST">
-          <div class="title-container">
-            <h2>Get The Latest <p class="covid-paragraph">COVID-19</p> status emailed to you!</h2>
+  <div class="container">
+    <div class="content">
+      <form action="/submit" method="POST">
+        <div class="title-container">
+          <h2>Get The Latest <p class="covid-paragraph">COVID-19</p> status emailed to you!</h2>
+        </div>
+        <h3>Enter your email & press send. </h3>
+        <div class="input-button-container">
+          <input type="email" name="email" id="email" value="" placeholder="Enter your email here" required>
+          <div class="button-container">
+            <button type="submit" id="button" name="button">Send</button>
           </div>
-          <h3>Enter your email & press send. </h3>
-          <div class="input-button-container">
-            <input type="email" name="email" id="email" value="" placeholder="Enter your email here" required>
-            <div class="button-container">
-              <button type="submit" id="button" name="button">Send</button>
-            </div>
-          </div>
-          {% if message %}
-          <span style="color:{{color}};">{{ message }}</span>
-          {% endif %}
-          <span id="message"></span>
-        </form>
-      </div>
+        </div>
+        {% if message %}
+        <span style="color:{{color}};">{{ message }}</span>
+        {% endif %}
+        <span id="message"></span>
+      </form>
     </div>
+  </div>
+  <script type="text/javascript">
+    // extract the message that is being passed from /submit after it is submitted 
+    // check if there is a message present, if there is then alert the user with the message
+    var message = {{ message| tojson | safe }}
+    if (message) alert("{{message}}");
+  </script>
   <script type="text/javascript" src="{{ url_for('static',filename='js/main.js') }}"> </script>
 </body>
 
