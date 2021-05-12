@@ -1,8 +1,6 @@
 import smtplib, ssl, csv
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import schedule
-import time
 from datetime import datetime, timedelta
 from services.scrapper.scrapcovid import scrap_from_new_website #import the function that returns a dictionary of states and its data
 from dotenv import load_dotenv,find_dotenv #get the functions to load the variables inside .env
@@ -12,12 +10,18 @@ def send_out_mail(email_to_send_to):
     load_dotenv(find_dotenv('../.env')) #function to look for the .env file to find the variables
     #get the states and data dictionary
     state_dict = scrap_from_new_website()
+    
+    # sender email and passworo
     sender_email = os.environ.get('EMAIL')
     password = os.environ.get("PASSWORD")
+
+    # get today's date in mm-dd-yyyy format
     today_date = (datetime.today() - timedelta(days=1)).strftime('%m-%d-%y')
     subject_field = f"COVID-19 STATUS UPDATE for {today_date}"
     str = ''
-    for state,data in state_dict.items(): #iterate through the dict, and populating the data in to the rows of the html string
+    
+    #iterate through the dict, and populating the data in to the rows of the html string
+    for state,data in state_dict.items(): 
         str = str + '<tr><th>{}</th><th>{}</th><th>{}</th><th>{}</th><th>{}</th></tr>'.format(state,data[0],data[1],data[2],data[3]) #concatenate the rows into the strings
 
     # Create the plain-text and HTML version of your message
@@ -31,7 +35,7 @@ def send_out_mail(email_to_send_to):
     border: 1px solid #dddddd;
     </style>
       <body>
-        <p>Good Afternoon. Here is an update on yesterday's COVID-19 status in the United States. </p>
+        <p>Hello, here is an update on today's COVID-19 status.</p>
         <table>
         <tr><th><b>State</b></th><th><b>Total Cases</b></th><th><b>New Cases</b></th><th><b>Total Deaths</b></th><th><b>New Deaths</b></th></tr>
         """+str+"""
